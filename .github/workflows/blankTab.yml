@@ -1,0 +1,16 @@
+name: Chrome Extension CI/CD
+
+on:
+  push:
+    branches:
+      - master # Change this to your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      # Add more steps for building, testing, and deploying here
