@@ -13,4 +13,22 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      # Add more steps for building, testing, and deploying here
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.18.0'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Tests
+        run: npm test
+
+      - name: Build Extension
+        run: npm run build
+
+      - name: Archive Build Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: chrome-extension
+          path: ./build
