@@ -1,7 +1,39 @@
 <!DOCTYPE html>
-<html style="background-color: black;">
+<html>
 <head>
     <title>BlankTab</title>
+    <style>
+        body {
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            height: 100vh; /* Full viewport height */
+            background-color: black; /* Initial background color */
+            position: relative; /* Needed for absolute positioning of child elements */
+            transition: background-color 0.3s; /* Smooth transition for background color */
+        }
+        #toggleIcon {
+            position: absolute; /* Absolute positioning */
+            bottom: 24px; /* 10px from the bottom of the body */
+            right: 24px; /* 10px from the left of the body */
+            cursor: pointer; /* Change cursor to indicate clickable */
+        }
+    </style>
 </head>
-<body></body>
+<body>
+    <img id="toggleIcon" src="/ChromeStoreMedia/darkModeIcon.png" alt="Dark Mode Icon" />
+    <script>
+        const body = document.body;
+        const toggleIcon = document.getElementById('toggleIcon');
+
+        toggleIcon.addEventListener('click', function() {
+            if(body.style.backgroundColor === 'black') {
+                body.style.backgroundColor = '#DFDFDF';
+                toggleIcon.src = '/ChromeStoreMedia/lightModeIcon.png'; // Path to the light mode icon
+            } else {
+                body.style.backgroundColor = 'black';
+                toggleIcon.src = '/ChromeStoreMedia/darkModeIcon.png'; // Path to the dark mode icon
+            }
+        });
+    </script>
+</body>
 </html>
